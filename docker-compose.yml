@@ -1,0 +1,22 @@
+postgres:
+    image: postgres:9.4
+    environment:
+        - POSTGRES_PASSWORD=postgres
+
+django-app:
+    image: surajx/django-app
+    volumes:
+        - ./django-app/:/usr/src/app/
+    environment:
+        - DJANGO_APP_ENV=development
+        - SESSION_SECRET=@chk(&1j+_qtx3le^)2g^zzig906c1s5l%xufzkk*f#9!e&r*z
+        - DB_NAME=postgres
+        - DB_USER=postgres
+        - DB_PASS=postgres
+        - DB_SERVICE=postgres
+        - DB_PORT=5432
+    ports:
+        - "8880:8880"
+    command: gunicorn -c gunicorn_conf.py hello_world.wsgi:application
+    links:
+        - postgres
