@@ -55,3 +55,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+#do not track changes in apps
+django-app/
