@@ -4,7 +4,7 @@ postgres:
         - POSTGRES_PASSWORD=postgres
 
 django-app:
-    image: surajx/django-app
+    image: surajx/dockyard:django-app
     volumes:
         - ./django-app/:/usr/src/app/
     environment:
