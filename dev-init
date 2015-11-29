@@ -11,9 +11,8 @@ docker -v && \
 docker-compose -v && \
 
 #cloning all apps from dev fork
-app_list=( django_app )
-for app in "${array[@]}"
-do
+app_list=( django-app )
+for app in ${app_list[@]}; do
     if [ ! -d "$app" ]; then
         git clone git@github.com:$1/$app.git
         if [ "$?" -ne 1 ]; then
@@ -21,8 +20,7 @@ do
         fi
     fi
 done
-for app in "${array[@]}"
-do
+for app in ${app_list[@]}; do
     if [ ! -d "$app" ]; then
         echo "$app not cloned, please fork all required apps"
         exit
