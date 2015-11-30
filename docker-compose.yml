@@ -4,6 +4,7 @@ postgres:
         - POSTGRES_PASSWORD=postgres
 
 django-app:
+    restart: always
     image: surajx/dockyard:django-app
     volumes:
         - ./django-app/:/usr/src/app/
@@ -17,6 +18,6 @@ django-app:
         - DB_PORT=5432
     ports:
         - "8880:8880"
-    command: gunicorn -c gunicorn_conf.py hello_world.wsgi:application
+    command: bash -c "sleep 3 && gunicorn -c gunicorn_conf.py hello_world.wsgi:application"
     links:
         - postgres

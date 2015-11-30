@@ -13,9 +13,9 @@
 * `docker-compose rm -f <app>` Remove stopped container of <app>
 * `docker-compose rm -f` Remove ALL stopped service containers
 * `docker-compose logs <app>` view output from container of <app>
-* `docker-compose run <app> <command>` Run a one-off command on a service.
-* `docker-compose run <app> /bin/bash` Get a shell prompt on <app>
-* `docker-compose run <django-app> python manage.py <django args>` 
+* `docker-compose run --rm <app> <command>` Run a one-off command on a service.
+* `docker-compose run --rm <app> /bin/bash` Get a shell prompt on <app>
+* `docker-compose run --rm <django-app> python manage.py <django args>`
     Run django administration on a django-app container.
 * `docker-compose ps` List containers.
 * `docker-compose build --pull <app>` Build newer version of image from hub
