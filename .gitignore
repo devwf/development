@@ -58,3 +58,4 @@ target/
 
 #do not track changes in apps
 django-app/
+.pg_data
